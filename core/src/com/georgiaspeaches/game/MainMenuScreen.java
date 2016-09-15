@@ -5,13 +5,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-public class MainMenuScreen implements Screen {
+public class MainMenuScreen implements Screen
+{
 
 	final MainHalls game;
 
 	OrthographicCamera camera;
 
-	public MainMenuScreen(final MainHalls gam) {
+	public MainMenuScreen(final MainHalls gam)
+	{
 		game = gam;
 
 		camera = new OrthographicCamera();
@@ -39,7 +41,8 @@ public class MainMenuScreen implements Screen {
 		game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
 		game.batch.end();
 
-		if (Gdx.input.isTouched()) {
+		if(Gdx.input.isTouched())
+		{
 			game.setScreen(new GameScreen(game));
 			dispose();
 		}

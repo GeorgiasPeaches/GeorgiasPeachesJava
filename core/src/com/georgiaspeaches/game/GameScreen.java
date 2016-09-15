@@ -1,20 +1,16 @@
 package com.georgiaspeaches.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
  * com.georgiaspeaches.game
  * [Description]
- * <p/>
+ * </p>
  * [Variable Dictionary]
  *
  * @author ${user}
@@ -28,6 +24,7 @@ public class GameScreen implements Screen
 	public Texture grass;
 	public Rectangle tile1render;
 	public OrthographicCamera camera;
+
 	public GameScreen(final MainHalls gam)
 	{
 		this.game = gam;
@@ -95,35 +92,73 @@ public class GameScreen implements Screen
 
 	public void drawGrass()
 	{
-		for(int x = 1; x<=80; x++)
+		for(int x = 1; x <= 80; x++)
 		{
-			for(int y = 1; y<=55; y++)
+			for(int y = 1; y <= 55; y++)
 			{
 				game.batch.draw(grass, getXValue(x), getYValue(y));
 			}
 		}
 	}
+
 	public void drawBrick()
 	{
-		for(int x = 3; x<=80-4; x++)
+		for(int x = 3; x <= 80 - 4; x++)
 		{
 			game.batch.draw(brick, getXValue(x), getYValue(3));
 			game.batch.draw(brick, getXValue(x), getYValue(4));
 		}
-		for(int x = 5; x<=10; x++)
-		{
-			game.batch.draw(brick, getXValue(3), getYValue(x));
-			game.batch.draw(brick, getXValue(4), getYValue(x));
-		}
-		for(int x = 3; x<=26; x++)
+		for(int x = 26 + 10; x <= 80 - 10; x++)
 		{
 			game.batch.draw(brick, getXValue(x), getYValue(11));
 			game.batch.draw(brick, getXValue(x), getYValue(12));
 		}
+		for(int x = 5; x <= 10; x++)
+		{
+			game.batch.draw(brick, getXValue(3), getYValue(x));
+			game.batch.draw(brick, getXValue(4), getYValue(x));
+		}
+		for(int x = 3; x <= 26; x++)
+		{
+			game.batch.draw(brick, getXValue(x), getYValue(11));
+			game.batch.draw(brick, getXValue(x), getYValue(12));
+		}
+		for(int x = 11; x <= 53; x++)
+		{
+			game.batch.draw(brick, getXValue(26), getYValue(x));
+			game.batch.draw(brick, getXValue(27), getYValue(x));
+		}
+		for(int x = 11; x <= 53-8; x++)
+		{
+			game.batch.draw(brick, getXValue(26+8), getYValue(x));
+			game.batch.draw(brick, getXValue(27+8), getYValue(x));
+		}
+		for(int x = 26; x <= 80 - 2; x++)
+		{
+			game.batch.draw(brick, getXValue(x), getYValue(53));
+			game.batch.draw(brick, getXValue(x), getYValue(52));
+		}
+		for(int x = 26+8; x <= 80 - 10; x++)
+		{
+			game.batch.draw(brick, getXValue(x), getYValue(53-8));
+			game.batch.draw(brick, getXValue(x), getYValue(52-8));
+		}
+		for(int x = 3; x <= 55-4; x++)
+		{
+			game.batch.draw(brick, getXValue(80 - 3), getYValue(x));
+			game.batch.draw(brick, getXValue(80 - 2), getYValue(x));
+		}
+		for(int x = 11; x <= 55-4-8; x++)
+		{
+			game.batch.draw(brick, getXValue(80 - 3 - 8), getYValue(x));
+			game.batch.draw(brick, getXValue(80 - 2 - 8), getYValue(x));
+		}
+
 	}
+
 	public void drawTiles()
 	{
-		for(int x = 5; x<=80-4; x++)
+		for(int x = 5; x <= 80 - 4; x++)
 		{
 			game.batch.draw(tile1, getXValue(x), getYValue(5));
 			game.batch.draw(tile1, getXValue(x), getYValue(6));
@@ -132,15 +167,44 @@ public class GameScreen implements Screen
 			game.batch.draw(tile1, getXValue(x), getYValue(9));
 			game.batch.draw(tile1, getXValue(x), getYValue(10));
 		}
+		for(int x = 28; x <= 80 - 4; x++)
+		{
+			game.batch.draw(tile1, getXValue(x), getYValue(51));
+			game.batch.draw(tile1, getXValue(x), getYValue(50));
+			game.batch.draw(tile1, getXValue(x), getYValue(49));
+			game.batch.draw(tile1, getXValue(x), getYValue(48));
+			game.batch.draw(tile1, getXValue(x), getYValue(47));
+			game.batch.draw(tile1, getXValue(x), getYValue(46));
+		}
+		for(int x = 11; x <= 55-10; x++)
+		{
+			game.batch.draw(tile1, getXValue(28), getYValue(x));
+			game.batch.draw(tile1, getXValue(29), getYValue(x));
+			game.batch.draw(tile1, getXValue(30), getYValue(x));
+			game.batch.draw(tile1, getXValue(31), getYValue(x));
+			game.batch.draw(tile1, getXValue(32), getYValue(x));
+			game.batch.draw(tile1, getXValue(33), getYValue(x));
+		}
+		for(int x = 11; x <= 55-10; x++)
+		{
+			game.batch.draw(tile1, getXValue(80-4), getYValue(x));
+			game.batch.draw(tile1, getXValue(80-5), getYValue(x));
+			game.batch.draw(tile1, getXValue(80-6), getYValue(x));
+			game.batch.draw(tile1, getXValue(80-7), getYValue(x));
+			game.batch.draw(tile1, getXValue(80-8), getYValue(x));
+			game.batch.draw(tile1, getXValue(80-9), getYValue(x));
+		}
 	}
+
 	public int getYValue(int y)
 	{
-		y = 880 - 16*y;
+		y = 880 - 16 * y;
 		return y;
 	}
+
 	public int getXValue(int x)
 	{
-		x = 16*x;
-		return x-16;
+		x = 16 * x;
+		return x - 16;
 	}
 }
