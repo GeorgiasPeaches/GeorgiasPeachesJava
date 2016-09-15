@@ -48,7 +48,7 @@ public class CharterHallways implements ApplicationListener {
 		batch.begin();
 		drawGrass();
 		drawBrick();
-		//drawTiles();
+		drawTiles();
 		batch.end();
 	}
 
@@ -66,9 +66,9 @@ public class CharterHallways implements ApplicationListener {
 
 	public void drawGrass()
 	{
-		for(int x = 0; x<=80; x++)
+		for(int x = 1; x<=80; x++)
 		{
-			for(int y = 0; y<=55; y++)
+			for(int y = 1; y<=55; y++)
 			{
 				batch.draw(grass, getXValue(x), getYValue(y));
 			}
@@ -76,33 +76,32 @@ public class CharterHallways implements ApplicationListener {
 	}
 	public void drawBrick()
 	{
-		for(int x = 0; x<=80; x++)
+		for(int x = 3; x<=80-4; x++)
 		{
-			batch.draw(brick, getXValue(x), getYValue(1));
-			batch.draw(brick, getXValue(x), getYValue(2));
+			batch.draw(brick, getXValue(x), getYValue(3));
+			batch.draw(brick, getXValue(x), getYValue(4));
+		}
+		for(int x = 5; x<=10; x++)
+		{
+			batch.draw(brick, getXValue(3), getYValue(x));
+			batch.draw(brick, getXValue(4), getYValue(x));
+		}
+		for(int x = 3; x<=26; x++)
+		{
+			batch.draw(brick, getXValue(x), getYValue(11));
+			batch.draw(brick, getXValue(x), getYValue(12));
 		}
 	}
 	public void drawTiles()
 	{
-		int x = 32+32;
-		while(x <= 1280-32-16-36)
+		for(int x = 5; x<=80-4; x++)
 		{
-			batch.draw(tile1, x, 960-64+16-32);
-			batch.draw(tile1, x, 960-64-32);
-			batch.draw(tile1, x, 960-64-32-16);
-			batch.draw(tile1, x, 960-64-32-32);
-			batch.draw(tile1, x, 960-64-32-48);
-			batch.draw(tile1, x, 960-64-32-64);
-			x+=16;
-		}
-		for(int i = 64; i<900-5*16; i+=16)
-		{
-			batch.draw(tile1, 23*16, i);
-			batch.draw(tile1, 23*16+16, i);
-			batch.draw(tile1, 23*16+32, i);
-			batch.draw(tile1, 23*16+48, i);
-			batch.draw(tile1, 23*16+64, i);
-			batch.draw(tile1, 23*16+80, i);
+			batch.draw(tile1, getXValue(x), getYValue(5));
+			batch.draw(tile1, getXValue(x), getYValue(6));
+			batch.draw(tile1, getXValue(x), getYValue(7));
+			batch.draw(tile1, getXValue(x), getYValue(8));
+			batch.draw(tile1, getXValue(x), getYValue(9));
+			batch.draw(tile1, getXValue(x), getYValue(10));
 		}
 	}
 	public int getYValue(int y)
