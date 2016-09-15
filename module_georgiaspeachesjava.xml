@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_georgiaspeachesjava" default="compile.module.georgiaspeachesjava">
+  <dirname property="module.georgiaspeachesjava.basedir" file="${ant.file.module_georgiaspeachesjava}"/>
+  
+  <property name="module.jdk.home.georgiaspeachesjava" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.georgiaspeachesjava" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.georgiaspeachesjava" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.georgiaspeachesjava" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="georgiaspeachesjava.output.dir" value="${module.georgiaspeachesjava.basedir}/out/production/GeorgiasPeachesJava"/>
+  <property name="georgiaspeachesjava.testoutput.dir" value="${module.georgiaspeachesjava.basedir}/out/test/GeorgiasPeachesJava"/>
+  
+  <path id="georgiaspeachesjava.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="georgiaspeachesjava.module.production.classpath">
+    <path refid="${module.jdk.classpath.georgiaspeachesjava}"/>
+  </path>
+  
+  <path id="georgiaspeachesjava.runtime.production.module.classpath">
+    <pathelement location="${georgiaspeachesjava.output.dir}"/>
+  </path>
+  
+  <path id="georgiaspeachesjava.module.classpath">
+    <path refid="${module.jdk.classpath.georgiaspeachesjava}"/>
+    <pathelement location="${georgiaspeachesjava.output.dir}"/>
+  </path>
+  
+  <path id="georgiaspeachesjava.runtime.module.classpath">
+    <pathelement location="${georgiaspeachesjava.testoutput.dir}"/>
+    <pathelement location="${georgiaspeachesjava.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.georgiaspeachesjava">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.georgiaspeachesjava">
+    <patternset refid="excluded.from.module.georgiaspeachesjava"/>
+  </patternset>
+  
+  
+  <target name="compile.module.georgiaspeachesjava" depends="compile.module.georgiaspeachesjava.production,compile.module.georgiaspeachesjava.tests" description="Compile module GeorgiasPeachesJava"/>
+  
+  <target name="compile.module.georgiaspeachesjava.production" depends="register.custom.compilers" description="Compile module GeorgiasPeachesJava; production classes"/>
+  
+  <target name="compile.module.georgiaspeachesjava.tests" depends="register.custom.compilers,compile.module.georgiaspeachesjava.production" description="compile module GeorgiasPeachesJava; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.georgiaspeachesjava" description="cleanup module">
+    <delete dir="${georgiaspeachesjava.output.dir}"/>
+    <delete dir="${georgiaspeachesjava.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_html" default="compile.module.html">
+  <dirname property="module.html.basedir" file="${ant.file.module_html}"/>
+  
+  <property name="module.jdk.home.html" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.html" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.html" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.html" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="html.output.dir" value="${module.html.basedir}/../out/production/html"/>
+  <property name="html.testoutput.dir" value="${module.html.basedir}/../out/test/html"/>
+  
+  <path id="html.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="html.module.production.classpath">
+    <path refid="${module.jdk.classpath.html}"/>
+    <pathelement location="${core.output.dir}"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/4e43ab54a25d53cc74895192210393880503459d/gdx-backend-gwt-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/f2804363b66d71ecd3c98cc9afbf2f55ca4f0dec/gdx-backend-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/f0e4d245a67fc96707610a4260a325fa034c93d1/gdx-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/4b4b7962d1bc75af0438f5c81ec1010557bc9ee5/gdx-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/9af0359c12dcbdfb737d7cbf0715f303b848d13c/gdx-box2d-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/98a0d25c9f0637fecac6e4aacf7287aa635964f5/gdx-box2d-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.4/e21bf4a4c310abdb55873b863241ec94e473d7cc/gdx-box2d-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/154b2fbb50894a944607cd74f7dba1073d31a967/gdx-ai-1.8.0-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/ec30677d8ab1a8b8aa4b853c5f4e4b1361f50bf5/gdx-ai-1.8.0.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+  </path>
+  
+  <path id="html.runtime.production.module.classpath">
+    <pathelement location="${html.output.dir}"/>
+    <path refid="core.runtime.production.module.classpath"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/4e43ab54a25d53cc74895192210393880503459d/gdx-backend-gwt-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/f2804363b66d71ecd3c98cc9afbf2f55ca4f0dec/gdx-backend-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/f0e4d245a67fc96707610a4260a325fa034c93d1/gdx-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/4b4b7962d1bc75af0438f5c81ec1010557bc9ee5/gdx-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/9af0359c12dcbdfb737d7cbf0715f303b848d13c/gdx-box2d-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/98a0d25c9f0637fecac6e4aacf7287aa635964f5/gdx-box2d-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.4/e21bf4a4c310abdb55873b863241ec94e473d7cc/gdx-box2d-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/154b2fbb50894a944607cd74f7dba1073d31a967/gdx-ai-1.8.0-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/ec30677d8ab1a8b8aa4b853c5f4e4b1361f50bf5/gdx-ai-1.8.0.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/d1e40c23bf78192482ee76c93619a10b4ea649f7/gwt-servlet-2.6.0.jar"/>
+  </path>
+  
+  <path id="html.module.classpath">
+    <path refid="${module.jdk.classpath.html}"/>
+    <pathelement location="${html.output.dir}"/>
+    <pathelement location="${core.testoutput.dir}"/>
+    <pathelement location="${core.output.dir}"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/4e43ab54a25d53cc74895192210393880503459d/gdx-backend-gwt-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/f2804363b66d71ecd3c98cc9afbf2f55ca4f0dec/gdx-backend-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/f0e4d245a67fc96707610a4260a325fa034c93d1/gdx-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/4b4b7962d1bc75af0438f5c81ec1010557bc9ee5/gdx-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/9af0359c12dcbdfb737d7cbf0715f303b848d13c/gdx-box2d-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/98a0d25c9f0637fecac6e4aacf7287aa635964f5/gdx-box2d-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.4/e21bf4a4c310abdb55873b863241ec94e473d7cc/gdx-box2d-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/154b2fbb50894a944607cd74f7dba1073d31a967/gdx-ai-1.8.0-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/ec30677d8ab1a8b8aa4b853c5f4e4b1361f50bf5/gdx-ai-1.8.0.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+  </path>
+  
+  <path id="html.runtime.module.classpath">
+    <pathelement location="${html.testoutput.dir}"/>
+    <pathelement location="${html.output.dir}"/>
+    <path refid="core.runtime.module.classpath"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/4e43ab54a25d53cc74895192210393880503459d/gdx-backend-gwt-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.4/f2804363b66d71ecd3c98cc9afbf2f55ca4f0dec/gdx-backend-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/f0e4d245a67fc96707610a4260a325fa034c93d1/gdx-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/4b4b7962d1bc75af0438f5c81ec1010557bc9ee5/gdx-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/9af0359c12dcbdfb737d7cbf0715f303b848d13c/gdx-box2d-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.4/98a0d25c9f0637fecac6e4aacf7287aa635964f5/gdx-box2d-1.9.4.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.4/e21bf4a4c310abdb55873b863241ec94e473d7cc/gdx-box2d-gwt-1.9.4-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/154b2fbb50894a944607cd74f7dba1073d31a967/gdx-ai-1.8.0-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-ai/1.8.0/ec30677d8ab1a8b8aa4b853c5f4e4b1361f50bf5/gdx-ai-1.8.0.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+    <pathelement location="${basedir}/../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/d1e40c23bf78192482ee76c93619a10b4ea649f7/gwt-servlet-2.6.0.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.html">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.html">
+    <patternset refid="excluded.from.module.html"/>
+  </patternset>
+  
+  <path id="html.module.sourcepath">
+    <dirset dir="${module.html.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.html" depends="compile.module.html.production,compile.module.html.tests" description="Compile module html"/>
+  
+  <target name="compile.module.html.production" depends="register.custom.compilers,compile.module.core" description="Compile module html; production classes">
+    <mkdir dir="${html.output.dir}"/>
+    <javac2 destdir="${html.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.html}/javac">
+      <compilerarg line="${compiler.args.html}"/>
+      <bootclasspath refid="html.module.bootclasspath"/>
+      <classpath refid="html.module.production.classpath"/>
+      <src refid="html.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.html"/>
+    </javac2>
+    
+    <copy todir="${html.output.dir}">
+      <fileset dir="${module.html.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.html.tests" depends="register.custom.compilers,compile.module.html.production" description="compile module html; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.html" description="cleanup module">
+    <delete dir="${html.output.dir}"/>
+    <delete dir="${html.testoutput.dir}"/>
+  </target>
+</project>

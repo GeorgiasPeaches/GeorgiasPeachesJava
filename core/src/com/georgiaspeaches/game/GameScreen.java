@@ -22,7 +22,9 @@ public class GameScreen implements Screen
 	public Texture tile1;
 	public Texture brick;
 	public Texture grass;
+	public Texture stairs;
 	public Rectangle tile1render;
+	public Rectangle objectrender;
 	public OrthographicCamera camera;
 
 	public GameScreen(final MainHalls gam)
@@ -31,9 +33,7 @@ public class GameScreen implements Screen
 		tile1 = new Texture(Gdx.files.internal("tile1.png"));
 		brick = new Texture(Gdx.files.internal("brick.png"));
 		grass = new Texture(Gdx.files.internal("grass.png"));
-		tile1render = new Rectangle();
-		tile1render.width = 16;
-		tile1render.height = 16;
+		stairs = new Texture(Gdx.files.internal("stairs.png"));
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1280, 880);
 	}
@@ -57,6 +57,7 @@ public class GameScreen implements Screen
 		drawGrass();
 		drawBrick();
 		drawTiles();
+		drawObjects();
 		game.batch.end();
 	}
 
@@ -194,6 +195,11 @@ public class GameScreen implements Screen
 			game.batch.draw(tile1, getXValue(80-8), getYValue(x));
 			game.batch.draw(tile1, getXValue(80-9), getYValue(x));
 		}
+	}
+
+	public void drawObjects()
+	{
+		game.batch.draw(stairs, getXValue(3), getYValue(8));
 	}
 
 	public int getYValue(int y)
