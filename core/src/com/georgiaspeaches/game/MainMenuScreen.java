@@ -1,6 +1,7 @@
 package com.georgiaspeaches.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -38,10 +39,10 @@ public class MainMenuScreen implements Screen
 
 		game.batch.begin();
 		game.font.draw(game.batch, "Welcome to Charter Hallways.", 100, 150);
-		game.font.draw(game.batch, "Tap anywhere to begin! Yay", 100, 100);
+		game.font.draw(game.batch, "Click space to begin!", 100, 100);
 		game.batch.end();
 
-		if(Gdx.input.isTouched())
+		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
 		{
 			game.setScreen(new GameScreen(game));
 			dispose();
