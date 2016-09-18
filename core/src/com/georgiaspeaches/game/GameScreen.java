@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
  * com.georgiaspeaches.game
@@ -22,15 +23,17 @@ public class GameScreen implements Screen
 	public Texture brick;
 	public Texture grass;
 	public Texture stairs;
+	public Player player;
 	public OrthographicCamera camera;
 
 	public GameScreen(final MainHalls gam)
 	{
 		game = gam;
-		tile1 = new Texture(Gdx.files.internal("tile1.png"));
-		brick = new Texture(Gdx.files.internal("brick.png"));
-		grass = new Texture(Gdx.files.internal("grass.png"));
-		stairs = new Texture(Gdx.files.internal("stairs.png"));
+		tile1 = new Texture(Gdx.files.internal("core/assets/tile1.png"));
+		brick = new Texture(Gdx.files.internal("core/assets/brick.png"));
+		grass = new Texture(Gdx.files.internal("core/assets/grass.png"));
+		stairs = new Texture(Gdx.files.internal("core/assets/stairs.png"));
+		player = new Player();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1280, 880);
 	}
