@@ -44,7 +44,7 @@ public class MainMenuScreen implements Screen
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
 		{
-			game.setScreen(new GameScreen(game));
+			game.setScreen(new TiledMapLoader());
 			dispose();
 		}
 	}
