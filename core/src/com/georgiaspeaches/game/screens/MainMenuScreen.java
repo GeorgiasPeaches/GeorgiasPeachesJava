@@ -40,7 +40,7 @@ public class MainMenuScreen implements Screen
 
 		game.batch.begin();
 		game.font.draw(game.batch, "Welcome to Charter Hallways.", 100, 150);
-		game.font.draw(game.batch, "Click space to begin!", 100, 100);
+		game.font.draw(game.batch, "Click space to spawn!", 100, 100);
 		game.batch.end();
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
