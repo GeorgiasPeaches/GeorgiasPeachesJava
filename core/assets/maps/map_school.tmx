@@ -72,6 +72,6 @@
 </data>
  </layer>
  <imagelayer name="Image Layer 1" offsetx="119.128" offsety="137.109">
-  <image source="GeorgiasPeachesJava/core/assets/grass.png"/>
+  <image source="grass.png"/>
  </imagelayer>
 </map>

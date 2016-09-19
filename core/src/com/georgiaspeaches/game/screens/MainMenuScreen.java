@@ -1,10 +1,11 @@
-package com.georgiaspeaches.game;
+package com.georgiaspeaches.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.georgiaspeaches.game.MainHalls;
 
 public class MainMenuScreen implements Screen
 {
@@ -44,7 +45,7 @@ public class MainMenuScreen implements Screen
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
 		{
-			game.setScreen(new TiledMapLoader());
+			game.setScreen(new Play());
 			dispose();
 		}
 	}
