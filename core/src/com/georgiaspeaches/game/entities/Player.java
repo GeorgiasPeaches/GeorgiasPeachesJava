@@ -32,7 +32,19 @@ public class Player
 
 	public Player()
 	{
-		super();
+		initialize();
+		classYear = 9;
+		myGPA = 1;
+	}
+	public Player(int classYear, int myGPA)
+	{
+		initialize();
+		this.classYear = classYear;
+		this.myGPA = myGPA;
+	}
+
+	public void initialize()
+	{
 		sb = new SpriteBatch();
 		texture = new Texture(Gdx.files.internal("maps/piq.png"));
 		sprite = new Sprite(texture);
@@ -42,22 +54,6 @@ public class Player
 		sprite.setPosition(myX, myY);
 		spriteBatch = new SpriteBatch();
 		mShapeRenderer = new ShapeRenderer();
-		classYear = 9;
-		myGPA = 1;
-	}
-	public Player(int classYear, int myGPA)
-	{
-		super();
-		sb = new SpriteBatch();
-		texture = new Texture(Gdx.files.internal("maps/piq.png"));
-		sprite = new Sprite(texture);
-		font = new BitmapFont();
-		sprite.setPosition(myX, myY);
-		spriteBatch = new SpriteBatch();
-		mShapeRenderer = new ShapeRenderer();
-		font = new BitmapFont();
-		this.classYear = classYear;
-		this.myGPA = myGPA;
 	}
 
 	public void render(OrthographicCamera camera)
@@ -140,7 +136,7 @@ public class Player
 
 	public void dispose()
 	{
-		Screen.setScreen(new Screen(MainMenuScreen));
+		return;
 	}
 	public float getX()
 	{

@@ -2,17 +2,15 @@ package com.georgiaspeaches.game.screens;
 
 
 import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.physics.box2d.Shape;
+import com.georgiaspeaches.game.MainHalls;
 import com.georgiaspeaches.game.entities.Player;
 
 public class Play implements Screen
@@ -21,8 +19,14 @@ public class Play implements Screen
 	TiledMap tiledMap;
 	OrthographicCamera camera;
 	TiledMapRenderer tiledMapRenderer;
-	Player player = new Player();
+	Player player = new Player(500, 10);
 	boolean mapArray[][] = new boolean[1000][1000];
+	final MainHalls game;
+
+	public Play(final MainHalls game)
+	{
+		this.game = game;
+	}
 
 	@Override
 	public void show()
@@ -82,6 +86,7 @@ public class Play implements Screen
 	{
 		tiledMap.dispose();
 		player.dispose();
+		game.setScreen(new MainMenuScreen(game));
 	}
 
 	@Override
