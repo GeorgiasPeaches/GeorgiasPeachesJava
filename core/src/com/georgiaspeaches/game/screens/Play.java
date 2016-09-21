@@ -81,6 +81,7 @@ public class Play implements Screen
 	public void dispose()
 	{
 		tiledMap.dispose();
+		player.dispose();
 	}
 
 	@Override

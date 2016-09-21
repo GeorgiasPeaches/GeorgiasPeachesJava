@@ -2,6 +2,7 @@ package com.georgiaspeaches.game.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.georgiaspeaches.game.screens.MainMenuScreen;
 
 
 public class Player
@@ -22,7 +24,7 @@ public class Player
 	int x = (int)myX/16;
 	int y = (int)myY/16;
 	SpriteBatch spriteBatch;
-	BitmapFont font;
+	BitmapFont font, fontsmall, fontsmaller;
 	ShapeRenderer mShapeRenderer;
 	CharSequence str = "Cheats Enabled [NOCLIP + SPEED]";
 	public int classYear;
@@ -34,11 +36,12 @@ public class Player
 		sb = new SpriteBatch();
 		texture = new Texture(Gdx.files.internal("maps/piq.png"));
 		sprite = new Sprite(texture);
-		font = new BitmapFont(Gdx.files.internal("maps/font.otf"));
+		font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
+		fontsmall = new BitmapFont(Gdx.files.internal("maps/ughsmall.fnt"));
+		fontsmaller = new BitmapFont(Gdx.files.internal("maps/ughsmaller.fnt"));
 		sprite.setPosition(myX, myY);
 		spriteBatch = new SpriteBatch();
 		mShapeRenderer = new ShapeRenderer();
-		font = new BitmapFont();
 		classYear = 9;
 		myGPA = 1;
 	}
@@ -106,8 +109,8 @@ public class Player
 		}
 		drawHUD();
 		spriteBatch.begin();
-		font.draw(spriteBatch, "GPA: "+myGPA, 1280/2-20, 880-100-5);
-		font.draw(spriteBatch, "Class Year: "+classYear, 1280-300+50, 880-100-100-50);
+		font.draw(spriteBatch, "GPA: "+myGPA, 1280/2-30, 880-100-5);
+		fontsmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
 		spriteBatch.end();
 	}
 	public void setPos(float x, float y)
@@ -135,6 +138,10 @@ public class Player
 		Gdx.gl.glDisable(GL20.GL_BLEND);
 	}
 
+	public void dispose()
+	{
+		Screen.setScreen(new Screen(MainMenuScreen));
+	}
 	public float getX()
 	{
 		return myX;
