@@ -20,6 +20,7 @@ public class Player
 	SpriteBatch spriteBatch;
 	BitmapFont font;
 	CharSequence str = "Cheats Enabled [NOCLIP]";
+	int classYear = 9;
 
 	public Player()
 	{
@@ -77,6 +78,9 @@ public class Player
 		{
 			speed = 80f;
 		}
+		spriteBatch.begin();
+		font.draw(spriteBatch, "You are currently in "+classYear+"th grade.", 520, 780);
+		spriteBatch.end();
 	}
 	public void setPos(float x, float y)
 	{
