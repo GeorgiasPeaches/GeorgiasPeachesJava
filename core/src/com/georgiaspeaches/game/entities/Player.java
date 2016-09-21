@@ -46,22 +46,22 @@ public class Player
 	public void update(boolean mapArray[][]){
 		int currentX = (int)myX/16;
 		int currentY = (int)myY/16;
-		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
+		if(Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A))
 		{
 			if(!mapArray[currentX-1][currentY] || Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
 				myX -= Gdx.graphics.getDeltaTime() * speed;
 		}
-		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D))
 		{
 			if(!mapArray[currentX+1][currentY] || Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
 				myX += Gdx.graphics.getDeltaTime() * speed;
 		}
-		if(Gdx.input.isKeyPressed(Input.Keys.UP))
+		if(Gdx.input.isKeyPressed(Input.Keys.UP) || Gdx.input.isKeyPressed(Input.Keys.W))
 		{
 			if(!mapArray[currentX][currentY+1] || Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
 				myY += Gdx.graphics.getDeltaTime() * speed;
 		}
-		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
+		if(Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.S))
 		{
 			if(!mapArray[currentX][currentY-1] || Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
 				myY -= Gdx.graphics.getDeltaTime() * speed;
