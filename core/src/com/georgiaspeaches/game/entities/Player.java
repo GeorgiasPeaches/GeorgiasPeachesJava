@@ -2,6 +2,7 @@ package com.georgiaspeaches.game.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -33,7 +34,7 @@ public class Player
 		sb = new SpriteBatch();
 		texture = new Texture(Gdx.files.internal("maps/piq.png"));
 		sprite = new Sprite(texture);
-		font = new BitmapFont();
+		font = new BitmapFont(Gdx.files.internal("maps/font.otf"));
 		sprite.setPosition(myX, myY);
 		spriteBatch = new SpriteBatch();
 		mShapeRenderer = new ShapeRenderer();
