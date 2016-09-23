@@ -2,8 +2,6 @@ package com.georgiaspeaches.game.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -12,7 +10,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.georgiaspeaches.game.screens.MainMenuScreen;
+import com.georgiaspeaches.game.MainHalls;
+import com.georgiaspeaches.game.screens.Play;
+import com.georgiaspeaches.game.screens.rooms.Satalino;
+import com.georgiaspeaches.game.utilities.DoorLoader;
 
 
 public class Player
@@ -28,19 +29,23 @@ public class Player
 	ShapeRenderer mShapeRenderer;
 	CharSequence str = "Cheats Enabled [NOCLIP + SPEED]";
 	public int classYear;
-	public int myGPA;
+	public double myGPA;
+	Door[][] myDoors;
+	final MainHalls game;
 
-	public Player()
+	public Player(MainHalls game)
 	{
 		initialize();
 		classYear = 9;
 		myGPA = 1;
+		this.game = game;
 	}
-	public Player(int classYear, int myGPA)
+	public Player(int classYear, double myGPA, MainHalls game)
 	{
 		initialize();
 		this.classYear = classYear;
 		this.myGPA = myGPA;
+		this.game = game;
 	}
 
 	public void initialize()
@@ -54,6 +59,7 @@ public class Player
 		sprite.setPosition(myX, myY);
 		spriteBatch = new SpriteBatch();
 		mShapeRenderer = new ShapeRenderer();
+		myDoors = DoorLoader.doors;
 	}
 
 	public void render(OrthographicCamera camera)
@@ -68,6 +74,9 @@ public class Player
 	public void update(boolean mapArray[][]){
 		int currentX = (int)myX/16;
 		int currentY = (int)myY/16;
+		spriteBatch.begin();
+		fontsmaller.draw(spriteBatch, "Position: ("+currentX+", "+currentY+")", 10, 15);
+		spriteBatch.end();
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A))
 		{
 			if(!mapArray[currentX-1][currentY] || Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
@@ -90,7 +99,7 @@ public class Player
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
 		{
-			speed = 150f;
+			speed = 180f;
 			spriteBatch.begin();
 			font.draw(spriteBatch, str, 100, 500);
 			spriteBatch.end();
@@ -98,6 +107,16 @@ public class Player
 		else
 		{
 			speed = 80f;
+		}
+		if(myDoors[currentX][currentY].roomNumber != 0)
+		{
+			spriteBatch.begin();
+			font.draw(spriteBatch, "Click E to enter room: "+myDoors[currentX][currentY].roomNumber, 550, 300);
+			spriteBatch.end();
+			if(Gdx.input.isKeyPressed(Input.Keys.E))
+			{
+				enterRoom(myDoors[currentX][currentY].roomNumber);
+			}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))
 		{
@@ -109,6 +128,13 @@ public class Player
 		fontsmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
 		spriteBatch.end();
 	}
+
+	private void enterRoom(int roomNumber)
+	{
+		dispose();
+		game.setScreen(new Satalino(game));
+	}
+
 	public void setPos(float x, float y)
 	{
 		x = this.myX;
@@ -124,7 +150,7 @@ public class Player
 		mShapeRenderer.setColor(new Color(1, 1, 1, 0.5f));
 		mShapeRenderer.rect(400, 880-130, 500, 30);
 		mShapeRenderer.setColor(new Color(1, 0, 1, 0.5f));
-		mShapeRenderer.rect(400+2, 880-130+2, myGPA, 30-4);
+		mShapeRenderer.rect(400+2, 880-130+2, (int)myGPA*100, 30-4);
 		mShapeRenderer.end();
 		//right top bar
 		mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
@@ -146,4 +172,5 @@ public class Player
 	{
 		return myY;
 	}
+
 }

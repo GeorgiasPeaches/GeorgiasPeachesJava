@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.georgiaspeaches.game.MainHalls;
 import com.georgiaspeaches.game.entities.Player;
+import com.georgiaspeaches.game.utilities.DoorLoader;
 
 public class Play implements Screen
 {
@@ -19,14 +20,16 @@ public class Play implements Screen
 	TiledMap tiledMap;
 	OrthographicCamera camera;
 	TiledMapRenderer tiledMapRenderer;
-	Player player = new Player(500, 10);
 	boolean mapArray[][] = new boolean[1000][1000];
 	final MainHalls game;
+	Player player;
 
 	public Play(final MainHalls game)
 	{
 		this.game = game;
+		player = new Player(500, 3.2, game);
 	}
+
 
 	@Override
 	public void show()
@@ -41,9 +44,11 @@ public class Play implements Screen
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
 		setBlocked();
+		DoorLoader.setDoors(tiledMap);
 	}
 
-	private void setBlocked() {
+	private void setBlocked()
+	{
 		for (int i = 0; i < tiledMap.getLayers().getCount(); i++) {
 			TiledMapTileLayer layer = (TiledMapTileLayer) tiledMap.getLayers().get(i);
 			for (int y = 0; y < layer.getHeight(); y++) {
@@ -58,13 +63,14 @@ public class Play implements Screen
 		}
 	}
 
+
 	@Override
 	public void render(float delta)
 	{
 		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
 			dispose();
 
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		camera.position.set(player.getX(), player.getY(), 0);
@@ -106,4 +112,5 @@ public class Play implements Screen
 	{
 
 	}
+
 }
