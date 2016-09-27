@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.georgiaspeaches.game.MainHalls;
-import com.georgiaspeaches.game.screens.Play;
 import com.georgiaspeaches.game.screens.rooms.Satalino;
 import com.georgiaspeaches.game.utilities.DoorLoader;
 
@@ -30,7 +29,7 @@ public class Player
 	CharSequence str = "Cheats Enabled [NOCLIP + SPEED]";
 	public int classYear;
 	public double myGPA;
-	Door[][] myDoors;
+	public Door[][] myDoors;
 	final MainHalls game;
 
 	public Player(MainHalls game)
@@ -110,12 +109,25 @@ public class Player
 		}
 		if(myDoors[currentX][currentY].roomNumber != 0)
 		{
-			spriteBatch.begin();
-			font.draw(spriteBatch, "Click E to enter room: "+myDoors[currentX][currentY].roomNumber, 550, 300);
-			spriteBatch.end();
-			if(Gdx.input.isKeyPressed(Input.Keys.E))
+			if(myDoors[currentX][currentY].roomNumber == 1)
 			{
-				enterRoom(myDoors[currentX][currentY].roomNumber);
+				spriteBatch.begin();
+				font.draw(spriteBatch, "Exit Room", 550, 300);
+				spriteBatch.end();
+				if(Gdx.input.isKeyPressed(Input.Keys.E))
+				{
+					enterRoom(myDoors[currentX][currentY].roomNumber);
+				}
+			}
+			else
+			{
+				spriteBatch.begin();
+				font.draw(spriteBatch, "Click E to enter room: " + myDoors[currentX][currentY].roomNumber, 550, 300);
+				spriteBatch.end();
+				if(Gdx.input.isKeyPressed(Input.Keys.E))
+				{
+					enterRoom(myDoors[currentX][currentY].roomNumber);
+				}
 			}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))
@@ -132,13 +144,13 @@ public class Player
 	private void enterRoom(int roomNumber)
 	{
 		dispose();
-		game.setScreen(new Satalino(game));
+		game.setScreen(new Satalino(game, this));
 	}
 
 	public void setPos(float x, float y)
 	{
-		x = this.myX;
-		y = this.myY;
+		this.myX = x;
+		this.myY = y;
 	}
 
 	public void drawHUD()

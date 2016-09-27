@@ -29,6 +29,11 @@ public class Play implements Screen
 		this.game = game;
 		player = new Player(500, 3.2, game);
 	}
+	public Play(final MainHalls game, Player player)
+	{
+		this.player = player;
+		this.game = game;
+	}
 
 
 	@Override
@@ -67,9 +72,6 @@ public class Play implements Screen
 	@Override
 	public void render(float delta)
 	{
-		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
-			dispose();
-
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
