@@ -3,7 +3,6 @@ package com.georgiaspeaches.game.utilities;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.georgiaspeaches.game.entities.Door;
-import com.georgiaspeaches.game.screens.Play;
 
 public class DoorLoader
 {
@@ -28,7 +27,9 @@ public class DoorLoader
 					{
 						doors[x][y] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
 						doors[x+1][y] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
+						doors[x+1][y+1] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
 						doors[x-1][y] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
+						doors[x-1][y-1] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
 						doors[x][y+1] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
 						doors[x][y-1] = new Door((Integer) layer.getCell(x, y).getTile().getProperties().get("roomNumber"));
 					}
