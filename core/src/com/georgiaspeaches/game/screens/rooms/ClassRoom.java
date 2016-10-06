@@ -15,18 +15,20 @@ import com.georgiaspeaches.game.entities.Player;
 import com.georgiaspeaches.game.screens.Play;
 import com.georgiaspeaches.game.utilities.DoorLoader;
 
-public class Satalino implements Screen
+public class ClassRoom implements Screen
 {
 	final MainHalls game;
 	TiledMap tiledMap;
 	OrthographicCamera camera;
 	TiledMapRenderer tiledMapRenderer;
 	Player player;
+	int roomNumber;
 	boolean mapArray[][] = new boolean[200][200];
-	public Satalino(MainHalls game, Player player)
+	public ClassRoom(MainHalls game, Player player, int roomNumber)
 	{
 		this.game = game;
 		this.player = player;
+		this.roomNumber = roomNumber;
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class Satalino implements Screen
 		tiledMap = new TmxMapLoader().load("maps/classroom.tmx");
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		setBlocked();
-		player.setPos(59*16, 33*16);
+		player.setPos(61*16, 34*16);
 
 	}
 

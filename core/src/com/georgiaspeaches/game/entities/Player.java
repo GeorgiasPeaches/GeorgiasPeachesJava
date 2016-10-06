@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.georgiaspeaches.game.MainHalls;
-import com.georgiaspeaches.game.screens.rooms.Satalino;
+import com.georgiaspeaches.game.screens.rooms.ClassRoom;
 import com.georgiaspeaches.game.utilities.DoorLoader;
 
 
@@ -144,7 +144,7 @@ public class Player
 	private void enterRoom(int roomNumber)
 	{
 		dispose();
-		game.setScreen(new Satalino(game, this));
+		game.setScreen(new ClassRoom(game, this, roomNumber));
 	}
 
 	public void setPos(float x, float y)
