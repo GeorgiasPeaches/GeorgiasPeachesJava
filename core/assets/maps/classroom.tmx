@@ -16,7 +16,7 @@
  <tileset firstgid="961" name="objects" tilewidth="32" tileheight="32" tilecount="4" columns="0">
   <tile id="0">
    <properties>
-    <property name="doorNumber" type="int" value="1"/>
+    <property name="doorNumber" type="int" value="0"/>
    </properties>
    <image width="16" height="16" source="door-icon.png"/>
   </tile>

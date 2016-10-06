@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -13,7 +15,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.georgiaspeaches.game.MainHalls;
 import com.georgiaspeaches.game.entities.Player;
 import com.georgiaspeaches.game.screens.Play;
-import com.georgiaspeaches.game.utilities.DoorLoader;
+import com.sun.org.apache.bcel.internal.generic.SALOAD;
 
 public class ClassRoom implements Screen
 {
@@ -24,11 +26,20 @@ public class ClassRoom implements Screen
 	Player player;
 	int roomNumber;
 	boolean mapArray[][] = new boolean[200][200];
+	SpriteBatch spriteBatch;
+	BitmapFont font, fontsmall, fontsmaller;
+	int spawnX, spawnY;
 	public ClassRoom(MainHalls game, Player player, int roomNumber)
 	{
 		this.game = game;
 		this.player = player;
 		this.roomNumber = roomNumber;
+		font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
+		fontsmall = new BitmapFont(Gdx.files.internal("maps/ughsmall.fnt"));
+		fontsmaller = new BitmapFont(Gdx.files.internal("maps/ughsmaller.fnt"));
+		spriteBatch = new SpriteBatch();
+		System.out.println("You are in room: "+roomNumber);
+		runRoom(roomNumber);
 	}
 
 	@Override
@@ -78,12 +89,23 @@ public class ClassRoom implements Screen
 		player.render(camera);
 		player.update(mapArray);
 
-		if(currentX == 59 || currentY == 33)
+		if((currentX == 59 && currentY == 33)||
+				(currentX == 58 && currentY == 33)||
+				(currentX == 60 && currentY == 33)||
+				(currentX == 59 && currentY == 32)||
+				(currentX == 59 && currentY == 34)||
+				(currentX == 60 && currentY == 34)||
+				(currentX == 58 && currentY == 34)||
+				(currentX == 58 && currentY == 32)||
+				(currentX == 60 && currentY == 32))
 		{
+			spriteBatch.begin();
+			font.draw(spriteBatch, "Click E to exit!", 615, 300-120);
+			spriteBatch.end();
 			if(Gdx.input.isKeyPressed(Input.Keys.E))
 			{
 				tiledMap.dispose();
-				player.setPos(77*16, 99*16);
+				player.setPos(spawnX, spawnY);
 				game.setScreen(new Play(game, player));
 			}
 		}
@@ -93,6 +115,18 @@ public class ClassRoom implements Screen
 			tiledMap.dispose();
 			player.setPos(77*16, 99*16);
 			game.setScreen(new Play(game, player));
+		}
+	}
+
+
+	public void runRoom(int roomNumber)
+	{
+		switch(roomNumber)
+		{
+			case 311:
+				new Satalino(game, player, roomNumber);
+				spawnX = Satalino.x*16;
+				spawnY = Satalino.y*16;
 		}
 	}
 

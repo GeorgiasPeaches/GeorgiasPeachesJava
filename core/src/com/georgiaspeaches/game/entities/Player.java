@@ -109,25 +109,12 @@ public class Player
 		}
 		if(myDoors[currentX][currentY].roomNumber != 0)
 		{
-			if(myDoors[currentX][currentY].roomNumber == 1)
+			spriteBatch.begin();
+			font.draw(spriteBatch, "Click E to enter room: " + myDoors[currentX][currentY].roomNumber, 550, 300);
+			spriteBatch.end();
+			if(Gdx.input.isKeyPressed(Input.Keys.E))
 			{
-				spriteBatch.begin();
-				font.draw(spriteBatch, "Exit Room", 550, 300);
-				spriteBatch.end();
-				if(Gdx.input.isKeyPressed(Input.Keys.E))
-				{
-					enterRoom(myDoors[currentX][currentY].roomNumber);
-				}
-			}
-			else
-			{
-				spriteBatch.begin();
-				font.draw(spriteBatch, "Click E to enter room: " + myDoors[currentX][currentY].roomNumber, 550, 300);
-				spriteBatch.end();
-				if(Gdx.input.isKeyPressed(Input.Keys.E))
-				{
-					enterRoom(myDoors[currentX][currentY].roomNumber);
-				}
+				enterRoom(myDoors[currentX][currentY].roomNumber);
 			}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))
