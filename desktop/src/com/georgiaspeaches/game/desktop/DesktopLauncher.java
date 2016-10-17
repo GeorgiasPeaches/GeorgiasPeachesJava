@@ -10,6 +10,7 @@ public class DesktopLauncher
 	{
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Charter Halls";
+
 		config.width = 1280;
 		config.height = 880;
 		new LwjglApplication(new MainHalls(), config);

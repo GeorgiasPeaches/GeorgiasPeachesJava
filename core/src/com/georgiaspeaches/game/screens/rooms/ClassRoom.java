@@ -110,6 +110,25 @@ public class ClassRoom implements Screen
 			}
 		}
 
+		if((currentX == 81 && currentY == 33)||
+				(currentX == 82 && currentY == 33)||
+				(currentX == 83 && currentY == 33)||
+				(currentX == 81 && currentY == 32)||
+				(currentX == 81 && currentY == 34)||
+				(currentX == 82 && currentY == 34)||
+				(currentX == 83 && currentY == 34)||
+				(currentX == 82 && currentY == 32)||
+				(currentX == 83 && currentY == 32))
+		{
+			spriteBatch.begin();
+			font.draw(spriteBatch, "Click E to work!", 615, 300-120);
+			spriteBatch.end();
+			if(Gdx.input.isKeyPressed(Input.Keys.E))
+			{
+				runClasswork(roomNumber);
+			}
+		}
+
 		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
 		{
 			tiledMap.dispose();
@@ -127,6 +146,17 @@ public class ClassRoom implements Screen
 				new Satalino(game, player, roomNumber);
 				spawnX = Satalino.x*16;
 				spawnY = Satalino.y*16;
+		}
+	}
+
+	public void runClasswork(int roomNumber)
+	{
+		switch(roomNumber)
+		{
+			case 311:
+				System.out.println("Welcome to math 3 idiots");
+			case 306:
+				Payne.work();
 		}
 	}
 
