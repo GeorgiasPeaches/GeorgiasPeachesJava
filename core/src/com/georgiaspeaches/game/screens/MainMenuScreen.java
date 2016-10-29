@@ -3,25 +3,88 @@ package com.georgiaspeaches.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.georgiaspeaches.game.MainHalls;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 public class MainMenuScreen implements Screen
 {
 
 	final MainHalls game;
-	Texture cswLogo;
-	OrthographicCamera camera;
+	Skin skin;
+	Stage stage = new Stage();
 
 	public MainMenuScreen(final MainHalls game)
 	{
 		this.game = game;
-		cswLogo = new Texture(Gdx.files.internal("maps/CSW-Logo.jpg"));
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 1280, 880);
+		Gdx.input.setInputProcessor(stage);// Make the stage consume events
+
+		createBasicSkin();
+
+		makeButtons();
+	}
+
+	private void makeButtons()
+	{
+		//initilize buttons
+		TextButton newGameButton = new TextButton("New Game", skin);
+		newGameButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , Gdx.graphics.getHeight()/2);
+		newGameButton.addListener(new ChangeListener() {
+			@Override
+			public void changed (ChangeEvent event, Actor actor) {
+				game.setScreen(new Play(game));
+			}
+		});
+
+		TextButton continueButton = new TextButton("Continue Game", skin);
+		continueButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , (Gdx.graphics.getHeight()/2)-85);
+		continueButton.addListener(new ChangeListener() {
+			@Override
+			public void changed (ChangeEvent event, Actor actor) {
+				game.setScreen(new Play(game));
+			}
+		});
+
+		TextButton settingsButton = new TextButton("Settings", skin);
+		settingsButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , (Gdx.graphics.getHeight()/2)-170);
+		settingsButton.addListener(new ChangeListener() {
+			@Override
+			public void changed (ChangeEvent event, Actor actor) {
+				game.setScreen(new Play(game));
+			}
+		});
+		//add stages
+		stage.addActor(newGameButton);
+		stage.addActor(continueButton);
+		stage.addActor(settingsButton);
+	}
+
+	private void createBasicSkin()
+	{
+		//Create a font
+		BitmapFont font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
+		skin = new Skin();
+		skin.add("default", font);
+
+		//Create a texture
+		Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+		pixmap.setColor(Color.WHITE);
+		pixmap.fill();
+		skin.add("background",new Texture(pixmap));
+
+		//Create a button style
+		TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+		textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
+		textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
+		textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
+		textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
+		textButtonStyle.font = skin.getFont("default");
+		skin.add("default", textButtonStyle);
 
 	}
 
@@ -34,23 +97,11 @@ public class MainMenuScreen implements Screen
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(0x64/255.0f, 0x95/255.0f, 0xed/255.0f, 0xff/255.0f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		camera.update();
-		game.batch.setProjectionMatrix(camera.combined);
-
-		game.batch.begin();
-		game.font.draw(game.batch, "Welcome to Charter Hallways.", 100, 150);
-		game.font.draw(game.batch, "Click space to spawn!", 100, 100);
-		game.batch.draw(cswLogo, 100, 880-500);
-		game.batch.end();
-
-		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
-		{
-			game.setScreen(new Play(game));
-			dispose();
-		}
+		stage.act();
+		stage.draw();
 	}
 
 	@Override
@@ -82,5 +133,4 @@ public class MainMenuScreen implements Screen
 	{
 
 	}
-
 }
