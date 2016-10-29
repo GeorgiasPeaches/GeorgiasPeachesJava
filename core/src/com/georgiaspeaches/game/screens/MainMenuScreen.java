@@ -1,10 +1,10 @@
 package com.georgiaspeaches.game.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -18,11 +18,15 @@ public class MainMenuScreen implements Screen
 	final MainHalls game;
 	Skin skin;
 	Stage stage = new Stage();
+	BitmapFont font;
+	BitmapFont fontLarge;
+	SpriteBatch spriteBatch;
 
 	public MainMenuScreen(final MainHalls game)
 	{
 		this.game = game;
-		Gdx.input.setInputProcessor(stage);// Make the stage consume events
+		Gdx.input.setInputProcessor(stage);
+		spriteBatch = new SpriteBatch();
 
 		createBasicSkin();
 
@@ -67,7 +71,8 @@ public class MainMenuScreen implements Screen
 	private void createBasicSkin()
 	{
 		//Create a font
-		BitmapFont font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
+		font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
+		fontLarge = new BitmapFont(Gdx.files.internal("maps/ughlarge.fnt"));
 		skin = new Skin();
 		skin.add("default", font);
 
@@ -99,6 +104,9 @@ public class MainMenuScreen implements Screen
 	{
 		Gdx.gl.glClearColor(0x64/255.0f, 0x95/255.0f, 0xed/255.0f, 0xff/255.0f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		spriteBatch.begin();
+		fontLarge.draw(spriteBatch, "Charter Game", (Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8)-70 , (Gdx.graphics.getHeight()/2)+300);
+		spriteBatch.end();
 
 		stage.act();
 		stage.draw();
