@@ -17,14 +17,13 @@ import com.georgiaspeaches.game.utilities.DoorLoader;
 
 public class Player
 {
+	SpriteBatch spriteBatch;
 	SpriteBatch sb;
 	Sprite sprite;
 	Texture texture;
 	float myX = 58*16, myY = 97*16, speed = 80f;
 	int x = (int)myX/16;
 	int y = (int)myY/16;
-	SpriteBatch spriteBatch;
-	BitmapFont font, fontsmall, fontsmaller;
 	ShapeRenderer mShapeRenderer;
 	CharSequence str = "Cheats Enabled [NOCLIP + SPEED]";
 	public int classYear;
@@ -52,9 +51,6 @@ public class Player
 		sb = new SpriteBatch();
 		texture = new Texture(Gdx.files.internal("maps/piq.png"));
 		sprite = new Sprite(texture);
-		font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
-		fontsmall = new BitmapFont(Gdx.files.internal("maps/ughsmall.fnt"));
-		fontsmaller = new BitmapFont(Gdx.files.internal("maps/ughsmaller.fnt"));
 		sprite.setPosition(myX, myY);
 		spriteBatch = new SpriteBatch();
 		mShapeRenderer = new ShapeRenderer();
@@ -74,7 +70,7 @@ public class Player
 		int currentX = (int)myX/16;
 		int currentY = (int)myY/16;
 		spriteBatch.begin();
-		fontsmaller.draw(spriteBatch, "Position: ("+currentX+", "+currentY+")", 10, 15);
+		game.fontSmaller.draw(spriteBatch, "Position: ("+currentX+", "+currentY+")", 10, 15);
 		spriteBatch.end();
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A))
 		{
@@ -100,7 +96,7 @@ public class Player
 		{
 			speed = 180f;
 			spriteBatch.begin();
-			font.draw(spriteBatch, str, 100, 500);
+			game.font.draw(spriteBatch, str, 100, 500);
 			spriteBatch.end();
 		}
 		else
@@ -110,7 +106,7 @@ public class Player
 		if(myDoors[currentX][currentY].roomNumber != 0)
 		{
 			spriteBatch.begin();
-			font.draw(spriteBatch, "Click E to enter room: " + myDoors[currentX][currentY].roomNumber, 550, 300);
+			game.font.draw(spriteBatch, "Click E to enter room: " + myDoors[currentX][currentY].roomNumber, 550, 300);
 			spriteBatch.end();
 			if(Gdx.input.isKeyPressed(Input.Keys.E))
 			{
@@ -123,8 +119,8 @@ public class Player
 		}
 		drawHUD();
 		spriteBatch.begin();
-		font.draw(spriteBatch, "GPA: "+myGPA, 1280/2-30, 880-100-5);
-		fontsmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
+		game.font.draw(spriteBatch, "GPA: "+myGPA, 1280/2-30, 880-100-5);
+		game.fontSmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
 		spriteBatch.end();
 	}
 

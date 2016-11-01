@@ -27,16 +27,12 @@ public class ClassRoom implements Screen
 	int roomNumber;
 	boolean mapArray[][] = new boolean[200][200];
 	SpriteBatch spriteBatch;
-	BitmapFont font, fontsmall, fontsmaller;
 	int spawnX, spawnY;
 	public ClassRoom(MainHalls game, Player player, int roomNumber)
 	{
 		this.game = game;
 		this.player = player;
 		this.roomNumber = roomNumber;
-		font = new BitmapFont(Gdx.files.internal("maps/ugh.fnt"));
-		fontsmall = new BitmapFont(Gdx.files.internal("maps/ughsmall.fnt"));
-		fontsmaller = new BitmapFont(Gdx.files.internal("maps/ughsmaller.fnt"));
 		spriteBatch = new SpriteBatch();
 		System.out.println("You are in room: "+roomNumber);
 		runRoom(roomNumber);
@@ -100,7 +96,7 @@ public class ClassRoom implements Screen
 				(currentX == 60 && currentY == 32))
 		{
 			spriteBatch.begin();
-			font.draw(spriteBatch, "Click E to exit!", 615, 300-120);
+			game.font.draw(spriteBatch, "Click E to exit!", 615, 300-120);
 			spriteBatch.end();
 			if(Gdx.input.isKeyPressed(Input.Keys.E))
 			{
@@ -121,7 +117,7 @@ public class ClassRoom implements Screen
 				(currentX == 83 && currentY == 32))
 		{
 			spriteBatch.begin();
-			font.draw(spriteBatch, "Click E to work!", 615, 300-120);
+			game.font.draw(spriteBatch, "Click E to work!", 615, 300-120);
 			spriteBatch.end();
 			if(Gdx.input.isKeyPressed(Input.Keys.E))
 			{
