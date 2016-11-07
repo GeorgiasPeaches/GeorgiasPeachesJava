@@ -6,9 +6,16 @@ import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.georgiaspeaches.game.MainHalls;
+import com.kotcrab.vis.ui.VisUI;
+import com.kotcrab.vis.ui.util.InputValidator;
+import com.kotcrab.vis.ui.util.Validators;
+import com.kotcrab.vis.ui.widget.VisDialog;
+import com.kotcrab.vis.ui.widget.VisTextButton;
+import com.kotcrab.vis.ui.widget.VisValidatableTextField;
 
 public class MainMenuScreen implements Screen
 {
@@ -19,16 +26,16 @@ public class MainMenuScreen implements Screen
 	public MainMenuScreen(final MainHalls game)
 	{
 		this.game = game;
+		VisUI.load(VisUI.SkinScale.X2);
 		Gdx.input.setInputProcessor(stage);
 		game.batch = new SpriteBatch();
-		game.skin = game.createBasicSkin();
 		makeButtons();
 	}
 
 	private void makeButtons()
 	{
 		//initilize buttons
-		TextButton newGameButton = new TextButton("New Game", game.skin);
+		TextButton newGameButton = new VisTextButton("New Game");
 		newGameButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , Gdx.graphics.getHeight()/2);
 		newGameButton.addListener(new ChangeListener() {
 			@Override
@@ -37,16 +44,21 @@ public class MainMenuScreen implements Screen
 			}
 		});
 
-		TextButton continueButton = new TextButton("Set Game Progress", game.skin);
+		TextButton continueButton = new VisTextButton("Set Game Progress");
 		continueButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , (Gdx.graphics.getHeight()/2)-85);
 		continueButton.addListener(new ChangeListener() {
 			@Override
 			public void changed (ChangeEvent event, Actor actor) {
-				game.setScreen(new Play(game));
+				stage.clear();
+				VisValidatableTextField gpa = new VisValidatableTextField();
+				gpa.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+				gpa.addValidator(new Validators.FloatValidator());
+				stage.addActor(gpa);
+				//game.setScreen(new Play(game));
 			}
 		});
 
-		TextButton settingsButton = new TextButton("Settings", game.skin);
+		TextButton settingsButton = new VisTextButton("Settings");
 		settingsButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , (Gdx.graphics.getHeight()/2)-170);
 		settingsButton.addListener(new ChangeListener() {
 			@Override

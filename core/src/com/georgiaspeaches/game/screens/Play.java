@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.georgiaspeaches.game.MainHalls;
 import com.georgiaspeaches.game.entities.Player;
 import com.georgiaspeaches.game.utilities.DoorLoader;

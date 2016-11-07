@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.georgiaspeaches.game.entities.Player;
@@ -18,7 +19,6 @@ public class MainHalls extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public BitmapFont fontLarge, fontSmall, fontSmaller;
-	public Skin skin;
 
 	public void create() {
 		batch = new SpriteBatch();
@@ -32,7 +32,7 @@ public class MainHalls extends Game {
 	public Skin createBasicSkin()
 	{
 		//Create a font
-		skin = new Skin();
+		Skin skin = new Skin();
 		skin.add("default", font);
 
 		//Create a texture
