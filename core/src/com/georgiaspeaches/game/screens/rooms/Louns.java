@@ -54,7 +54,7 @@ public class Louns
 			}
 
 		}
-		else if(player.classYear == 11 && player.doneMath == false)
+		else if(player.classYear == 11 && player.doneScience == false)
 		{
 			String ans = JOptionPane.showInputDialog("What element has atomic number 6?");
 			if(ans.equals("Carbon"))
@@ -69,7 +69,7 @@ public class Louns
 			}
 
 		}
-		else if(player.classYear == 12 && player.doneMath == false)
+		else if(player.classYear == 12 && player.doneScience == false)
 		{
 			String ans = JOptionPane.showInputDialog("Velocity is:\nA. A scalar quantity\nB. A vector quantity");
 			if(ans.equals("B")

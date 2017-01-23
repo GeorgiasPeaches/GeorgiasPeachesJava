@@ -30,7 +30,7 @@ public class Doc
 			String ans = JOptionPane.showInputDialog("In what year did Columbus sail the ocean blue?");
 			if(ans.equals("1492"))
 			{
-				JOptionPane.showMessageDialog(null, "Yeah that's a good answer");
+				JOptionPane.showMessageDialog(null, "Yeah, that's a good answer");
 				player.myGPA+=1;
 				player.doneHistory = true;
 			}
@@ -46,7 +46,7 @@ public class Doc
 			{
 				JOptionPane.showMessageDialog(null, "You bet your bottom dollar!");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneHistory = true;
 			}
 			else
 			{
@@ -76,7 +76,7 @@ public class Doc
 			{
 				JOptionPane.showMessageDialog(null, "Wow you passed senior history congrchulachions");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneHistory = true;
 			}
 			else
 			{

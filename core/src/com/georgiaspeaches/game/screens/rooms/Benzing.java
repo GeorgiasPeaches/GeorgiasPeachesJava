@@ -31,7 +31,7 @@ public class Benzing
 			{
 				JOptionPane.showMessageDialog(null, "Correct :) you get candy (jk)");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneEnglish = true;
 			}
 			else
 			{
@@ -45,7 +45,7 @@ public class Benzing
 			{
 				JOptionPane.showMessageDialog(null, "Nice going!");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneEnglish = true;
 			}
 			else
 			{
@@ -60,7 +60,7 @@ public class Benzing
 			{
 				JOptionPane.showMessageDialog(null, "You actually passed a vocab test!");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneEnglish = true;
 			}
 			else
 			{
@@ -75,7 +75,7 @@ public class Benzing
 			{
 				JOptionPane.showMessageDialog(null, "Wow you passed senior english congrchulachions");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneEnglish = true;
 			}
 			else
 			{
