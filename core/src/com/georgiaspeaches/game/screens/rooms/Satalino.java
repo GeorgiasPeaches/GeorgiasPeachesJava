@@ -63,7 +63,7 @@ public class Satalino
 		else if(player.classYear == 12 && player.doneMath == false)
 		{
             String ans = JOptionPane.showInputDialog("What is the derivative of: sin(x) + 2x ?");
-            if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2")
+            if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2"))
             {
                 JOptionPane.showMessageDialog(null, "Wow you passed senior math congrchulachions");
                 player.myGPA+=1;

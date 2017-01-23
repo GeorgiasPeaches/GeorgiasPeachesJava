@@ -101,6 +101,16 @@ public class ClassRoom implements Screen
 			if(Gdx.input.isKeyJustPressed(Input.Keys.E))
 			{
 				tiledMap.dispose();
+				if(roomNumber == 329)
+				{
+					spawnX = Benzing.x*16;
+					spawnY = Benzing.y*16;
+				}
+				else if(roomNumber == 311)
+				{
+					spawnX = Satalino.x*16;
+					spawnY = Satalino.y*16;
+				}
 				player.setPos(spawnX, spawnY);
 				game.setScreen(new Play(game, player));
 			}
@@ -131,22 +141,13 @@ public class ClassRoom implements Screen
 			player.setPos(77*16, 99*16);
 			game.setScreen(new Play(game, player));
 		}
+
 	}
 
 
 	public void runRoom(int roomNumber)
 	{
-		switch(roomNumber)
-		{
-			case 311:
-				new Satalino(game, player, roomNumber);
-				spawnX = Satalino.x*16;
-				spawnY = Satalino.y*16;
-			case 306:
-				new Payne(game, player, roomNumber);
-				spawnX = Payne.x*16;
-				spawnY = Payne.y*16;
-		}
+		//naw dog
 	}
 
 	public void runClasswork(int roomNumber)
@@ -155,8 +156,8 @@ public class ClassRoom implements Screen
 		{
 			case 311:
 				Satalino.work(player);
-			case 306:
-				Payne.work(player);
+			case 329:
+				Benzing.work(player);
 		}
 	}
 
