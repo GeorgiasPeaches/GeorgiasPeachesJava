@@ -32,14 +32,47 @@ public class Satalino
 		}
 		else if(player.classYear == 10 && player.doneMath == false)
 		{
+            String ans = JOptionPane.showInputDialog("A square pyramid has base edge 5 and height 9.\nWhat is its area?");
+            if(ans.equals("75"))
+            {
+                JOptionPane.showMessageDialog(null, "Das correct boi");
+                player.myGPA+=1;
+                player.doneMath = true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No das sooo wrong. Better study boi");
+            }
 
 		}
 		else if(player.classYear == 11 && player.doneMath == false)
 		{
+            String ans = JOptionPane.showInputDialog("Sin of 30 degrees plus cos of 60 degrees is equal to what?");
+            if(ans.equals("1"))
+            {
+                JOptionPane.showMessageDialog(null, "Good boy");
+                player.myGPA+=1;
+                player.doneMath = true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No bad boy, go lie down and study");
+            }
 
 		}
 		else if(player.classYear == 12 && player.doneMath == false)
 		{
+            String ans = JOptionPane.showInputDialog("What is the derivative of: sin(x) + 2x ?");
+            if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2")
+            {
+                JOptionPane.showMessageDialog(null, "Wow you passed senior math congrchulachions");
+                player.myGPA+=1;
+                player.doneMath = true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "nah bro try again");
+            }
 
 		}
 		else
