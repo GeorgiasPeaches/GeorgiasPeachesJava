@@ -11,6 +11,6 @@ public class Satalino
 	public static int y = 90;
 	public Satalino(MainHalls game, Player player, int roomNumber)
 	{
-		JOptionPane.showMessageDialog(null, "YOU HAVE ENTERED SATALINOS ROOM! damn u got balls");
+		JOptionPane.showMessageDialog(null, "YOU HAVE ENTERED SATALINOS ROOM! damn u got balls!!");
 	}
 }
