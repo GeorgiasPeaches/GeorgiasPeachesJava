@@ -11,6 +11,21 @@ public class Satalino
 	public static int y = 90;
 	public Satalino(MainHalls game, Player player, int roomNumber)
 	{
-		JOptionPane.showMessageDialog(null, "YOU HAVE ENTERED SATALINOS ROOM! damn u got balls!!");
+		if(player.classYear == 9)
+		{
+
+		}
+		else if(player.classYear == 10)
+		{
+
+		}
+		else if(player.classYear == 11)
+		{
+
+		}
+		else if(player.classYear == 12)
+		{
+
+		}
 	}
 }
