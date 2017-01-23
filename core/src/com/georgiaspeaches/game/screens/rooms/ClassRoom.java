@@ -142,6 +142,10 @@ public class ClassRoom implements Screen
 				new Satalino(game, player, roomNumber);
 				spawnX = Satalino.x*16;
 				spawnY = Satalino.y*16;
+			case 306:
+				new Payne(game, player, roomNumber);
+				spawnX = Payne.x*16;
+				spawnY = Payne.y*16;
 		}
 	}
 
