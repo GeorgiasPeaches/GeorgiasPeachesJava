@@ -18,6 +18,11 @@ public class Satalino
 	{
 		if(player.classYear == 9)
 		{
+			String ans = JOptionPane.showInputDialog("Solve for x lmao: \n1x+6=3x");
+			if(ans == "3")
+			{
+				player.myGPA+=1.0;
+			}
 
 		}
 		else if(player.classYear == 10)
