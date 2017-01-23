@@ -98,7 +98,7 @@ public class ClassRoom implements Screen
 			spriteBatch.begin();
 			game.font.draw(spriteBatch, "Click E to exit!", 615, 300-120);
 			spriteBatch.end();
-			if(Gdx.input.isKeyPressed(Input.Keys.E))
+			if(Gdx.input.isKeyJustPressed(Input.Keys.E))
 			{
 				tiledMap.dispose();
 				player.setPos(spawnX, spawnY);
@@ -119,13 +119,13 @@ public class ClassRoom implements Screen
 			spriteBatch.begin();
 			game.font.draw(spriteBatch, "Click E to work!", 615, 300-120);
 			spriteBatch.end();
-			if(Gdx.input.isKeyPressed(Input.Keys.E))
+			if(Gdx.input.isKeyJustPressed(Input.Keys.E))
 			{
 				runClasswork(roomNumber);
 			}
 		}
 
-		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+		if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))
 		{
 			tiledMap.dispose();
 			player.setPos(77*16, 99*16);

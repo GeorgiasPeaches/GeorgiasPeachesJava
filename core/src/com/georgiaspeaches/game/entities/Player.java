@@ -27,6 +27,10 @@ public class Player
 	ShapeRenderer mShapeRenderer;
 	CharSequence str = "Cheats Enabled [NOCLIP + SPEED]";
 	public int classYear;
+	public boolean doneMath;
+	public boolean doneEnglish;
+	public boolean doneScience;
+	public boolean doneHistory;
 	public double myGPA;
 	public Door[][] myDoors;
 	final MainHalls game;

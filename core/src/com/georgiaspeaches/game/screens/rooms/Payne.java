@@ -16,6 +16,6 @@ public class Payne
 
     public static void work(Player player)
     {
-        System.out.println("Hiasda");
+        System.out.println("Payne");
     }
 }
