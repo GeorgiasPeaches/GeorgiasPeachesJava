@@ -25,58 +25,58 @@ public class Louns
 
 	public static void work(Player player)
 	{
-		if(player.classYear == 9 && player.doneMath == false)
+		if(player.classYear == 9 && player.doneScience == false)
 		{
-			String ans = JOptionPane.showInputDialog("Solve for x lmao: \n1x+6=3x");
-			if(ans.equals("3"))
+			String ans = JOptionPane.showInputDialog("The binary number, 00001101, is what in base 10?");
+			if(ans.equals("13"))
 			{
-				JOptionPane.showMessageDialog(null, "Correct");
+				JOptionPane.showMessageDialog(null, "c0rrect!!11!");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneScience = true;
 			}
 			else
 			{
 				JOptionPane.showMessageDialog(null, "No you wrong. Go study.");
 			}
 		}
-		else if(player.classYear == 10 && player.doneMath == false)
+		else if(player.classYear == 10 && player.doneScience == false)
 		{
-			String ans = JOptionPane.showInputDialog("A square pyramid has base edge 5 and height 9.\nWhat is its area?");
-			if(ans.equals("75"))
+			String ans = JOptionPane.showInputDialog("What is the powerhouse of the cell?");
+			if(ans.equals("Mitochondria") || ans.equals("the mitochondria"))
 			{
-				JOptionPane.showMessageDialog(null, "Das correct boi");
+				JOptionPane.showMessageDialog(null, "Correct, that's like the only thing you learned in school right");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneScience = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No das sooo wrong. Better study boi");
+				JOptionPane.showMessageDialog(null, "HOW DID YOU NOT KNOW THAT. TRY AGAIN");
 			}
 
 		}
 		else if(player.classYear == 11 && player.doneMath == false)
 		{
-			String ans = JOptionPane.showInputDialog("Sin of 30 degrees plus cos of 60 degrees is equal to what?");
-			if(ans.equals("1"))
+			String ans = JOptionPane.showInputDialog("What element has atomic number 6?");
+			if(ans.equals("Carbon"))
 			{
-				JOptionPane.showMessageDialog(null, "Good boy");
+				JOptionPane.showMessageDialog(null, "Good little child, you're right");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneScience = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No bad boy, go lie down and study");
+				JOptionPane.showMessageDialog(null, "Nope.");
 			}
 
 		}
 		else if(player.classYear == 12 && player.doneMath == false)
 		{
-			String ans = JOptionPane.showInputDialog("What is the derivative of: sin(x) + 2x ?");
-			if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2"))
+			String ans = JOptionPane.showInputDialog("Velocity is:\nA. A scalar quantity\nB. A vector quantity");
+			if(ans.equals("B")
 			{
-				JOptionPane.showMessageDialog(null, "Wow you passed senior math congrchulachions");
+				JOptionPane.showMessageDialog(null, "Wow you passed senior science congrchulachions");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneScience = true;
 			}
 			else
 			{
@@ -86,7 +86,7 @@ public class Louns
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You have completed math class :)");
+			JOptionPane.showMessageDialog(null, "You have completed science class :)");
 		}
 	}
 }
