@@ -24,12 +24,12 @@ public class Benzing
 	}
 	public static void work(Player player)
 	{
-		if(player.classYear == 9 && player.doneMath == false)
+		if(player.classYear == 9 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("Solve for x lmao: \n1x+6=3x");
-			if(ans.equals("3"))
+			String ans = JOptionPane.showInputDialog("Copy and paste this sentence, correcting the grammatical error:\nYour face currently look like it was smashed by a pineapple");
+			if(ans.equals("Your face currently looks like it was smashed by a pineapple"))
 			{
-				JOptionPane.showMessageDialog(null, "Correct");
+				JOptionPane.showMessageDialog(null, "Correct :) you get candy (jk)");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
@@ -38,42 +38,42 @@ public class Benzing
 				JOptionPane.showMessageDialog(null, "No you wrong. Go study.");
 			}
 		}
-		else if(player.classYear == 10 && player.doneMath == false)
+		else if(player.classYear == 10 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("A square pyramid has base edge 5 and height 9.\nWhat is its area?");
-			if(ans.equals("75"))
+			String ans = JOptionPane.showInputDialog("In the story, where did tofuman ride to?");
+			if(ans.equals("Tofuland"))
 			{
-				JOptionPane.showMessageDialog(null, "Das correct boi");
+				JOptionPane.showMessageDialog(null, "Nice going!");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No das sooo wrong. Better study boi");
+				JOptionPane.showMessageDialog(null, "uhh close? Try again...");
 			}
 
 		}
-		else if(player.classYear == 11 && player.doneMath == false)
+		else if(player.classYear == 11 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("Sin of 30 degrees plus cos of 60 degrees is equal to what?");
-			if(ans.equals("1"))
+			String ans = JOptionPane.showInputDialog("Define the word umbrage:\nA. Offense or annoyance\nB. Large-scale slaughter or loss of life\nC. A weakness or ailment");
+			if(ans.equals("A"))
 			{
-				JOptionPane.showMessageDialog(null, "Good boy");
+				JOptionPane.showMessageDialog(null, "You actually passed a vocab test!");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No bad boy, go lie down and study");
+				JOptionPane.showMessageDialog(null, "Nah, you can't run from vocab here, go");
 			}
 
 		}
-		else if(player.classYear == 12 && player.doneMath == false)
+		else if(player.classYear == 12 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("What is the derivative of: sin(x) + 2x ?");
-			if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2"))
+			String ans = JOptionPane.showInputDialog("What literary device is the repetition of a word or phrase at the beginning of successive clauses);
+			if(ans.equals("anaphora")
 			{
-				JOptionPane.showMessageDialog(null, "Wow you passed senior math congrchulachions");
+				JOptionPane.showMessageDialog(null, "Wow you passed senior english congrchulachions");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
@@ -85,7 +85,7 @@ public class Benzing
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You have completed math class :)");
+			JOptionPane.showMessageDialog(null, "You have completed english class :)");
 		}
 	}
 }
