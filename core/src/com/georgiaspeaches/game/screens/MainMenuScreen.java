@@ -68,7 +68,7 @@ public class MainMenuScreen implements Screen
 		});
 		//add stages
 		stage.addActor(newGameButton);
-		stage.addActor(continueButton);
+		//stage.addActor(continueButton);
 		stage.addActor(settingsButton);
 	}
 
