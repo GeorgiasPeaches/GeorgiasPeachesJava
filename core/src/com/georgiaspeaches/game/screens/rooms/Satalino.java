@@ -77,7 +77,7 @@ public class Satalino
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You have completed math class.");
+			JOptionPane.showMessageDialog(null, "You have completed math class :)");
 		}
 	}
 }
