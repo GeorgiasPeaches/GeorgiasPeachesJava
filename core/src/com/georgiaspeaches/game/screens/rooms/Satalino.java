@@ -11,6 +11,11 @@ public class Satalino
 	public static int y = 90;
 	public Satalino(MainHalls game, Player player, int roomNumber)
 	{
+
+	}
+
+	public static void work(Player player)
+	{
 		if(player.classYear == 9)
 		{
 

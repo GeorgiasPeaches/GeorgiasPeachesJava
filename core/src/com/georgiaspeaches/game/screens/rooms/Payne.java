@@ -14,7 +14,8 @@ public class Payne
 
     }
 
-    public static void work() {
+    public static void work(Player player)
+    {
         System.out.println("Hiasda");
     }
 }

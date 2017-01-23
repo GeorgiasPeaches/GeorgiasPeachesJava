@@ -150,9 +150,9 @@ public class ClassRoom implements Screen
 		switch(roomNumber)
 		{
 			case 311:
-				System.out.println("Welcome to math 3 idiots");
+				Satalino.work(player);
 			case 306:
-				Payne.work();
+				Payne.work(player);
 		}
 	}
 
