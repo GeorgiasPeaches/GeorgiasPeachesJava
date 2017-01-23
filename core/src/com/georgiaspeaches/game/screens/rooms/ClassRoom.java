@@ -111,6 +111,16 @@ public class ClassRoom implements Screen
 					spawnX = Satalino.x*16;
 					spawnY = Satalino.y*16;
 				}
+				else if(roomNumber == 220)
+				{
+					spawnX = Doc.x*16;
+					spawnY = Doc.y*16;
+				}
+				else if(roomNumber == 320)
+				{
+					spawnX = Louns.x*16;
+					spawnY = Louns.y*16;
+				}
 				player.setPos(spawnX, spawnY);
 				game.setScreen(new Play(game, player));
 			}

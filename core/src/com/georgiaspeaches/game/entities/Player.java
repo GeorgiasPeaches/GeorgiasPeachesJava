@@ -70,7 +70,9 @@ public class Player
 		sb.end();
 	}
 
-	public void update(boolean mapArray[][]){
+	public void update(boolean mapArray[][])
+	{
+
 		int currentX = (int)myX/16;
 		int currentY = (int)myY/16;
 		spriteBatch.begin();
@@ -124,7 +126,19 @@ public class Player
 		drawHUD();
 		spriteBatch.begin();
 		game.font.draw(spriteBatch, "GPA: "+(float)myGPA, 1280/2-45, 880-100-5);
-		game.fontSmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
+		String classYearText = "";
+		switch(classYear)
+		{
+			case 9:
+				classYearText = "Freshmen";
+			case 10:
+				classYearText = "Sophomore";
+			case 11:
+				classYearText = "Junior";
+			case 12:
+				classYearText = "Senior";
+		}
+		game.font.draw(spriteBatch, "Class Year: "+classYearText, 1280-300+80, 880-100-25);
 		spriteBatch.end();
 	}
 
@@ -152,10 +166,12 @@ public class Player
 		mShapeRenderer.rect(435+2, 880-130+2, (float)myGPA*100, 30-4);
 		mShapeRenderer.end();
 		//right top bar
+		/*
 		mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-		mShapeRenderer.setColor(new Color(50, 50, 50, 0.5f));
-		mShapeRenderer.rect(1280-300, 880-100-100, 300-20, 100);
+		mShapeRenderer.setColor(new Color(150, 150, 150, 0.5f));
+		mShapeRenderer.rect(1280-300, 880-100-100, 300-20, 30);
 		mShapeRenderer.end();
+		*/
 		Gdx.gl.glDisable(GL20.GL_BLEND);
 	}
 
