@@ -25,68 +25,68 @@ public class Doc
 
 	public static void work(Player player)
 	{
-		if(player.classYear == 9 && player.doneMath == false)
+		if(player.classYear == 9 && player.doneHistory == false)
 		{
-			String ans = JOptionPane.showInputDialog("Solve for x lmao: \n1x+6=3x");
-			if(ans.equals("3"))
+			String ans = JOptionPane.showInputDialog("In what year did Columbus sail the ocean blue?");
+			if(ans.equals("1492"))
 			{
-				JOptionPane.showMessageDialog(null, "Correct");
+				JOptionPane.showMessageDialog(null, "Yeah that's a good answer");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneHistory = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No you wrong. Go study.");
+				JOptionPane.showMessageDialog(null, "nah u failed lmao");
 			}
 		}
-		else if(player.classYear == 10 && player.doneMath == false)
+		else if(player.classYear == 10 && player.doneHistory == false)
 		{
-			String ans = JOptionPane.showInputDialog("A square pyramid has base edge 5 and height 9.\nWhat is its area?");
-			if(ans.equals("75"))
+			String ans = JOptionPane.showInputDialog("The type of architecture with tall and dark buildings is known as....");
+			if(ans.equals("Gothic"))
 			{
-				JOptionPane.showMessageDialog(null, "Das correct boi");
+				JOptionPane.showMessageDialog(null, "You bet your bottom dollar!");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No das sooo wrong. Better study boi");
+				JOptionPane.showMessageDialog(null, "No you don't bet your bottom dollar");
 			}
 
 		}
-		else if(player.classYear == 11 && player.doneMath == false)
+		else if(player.classYear == 11 && player.doneHistory == false)
 		{
-			String ans = JOptionPane.showInputDialog("Sin of 30 degrees plus cos of 60 degrees is equal to what?");
-			if(ans.equals("1"))
+			String ans = JOptionPane.showInputDialog("What year did the stock market crash?");
+			if(ans.equals("1929"))
 			{
-				JOptionPane.showMessageDialog(null, "Good boy");
+				JOptionPane.showMessageDialog(null, "Yep, you know your american history i guess");
 				player.myGPA+=1;
-				player.doneMath = true;
+				player.doneHistory = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No bad boy, go lie down and study");
+				JOptionPane.showMessageDialog(null, "Nahhhhhhh trryyyyy agaaaainnnn");
 			}
 
 		}
-		else if(player.classYear == 12 && player.doneMath == false)
+		else if(player.classYear == 12 && player.doneHistory == false)
 		{
-			String ans = JOptionPane.showInputDialog("What is the derivative of: sin(x) + 2x ?");
-			if(ans.equals("cos(x) + 2") || ans.equals("cos(x)+2)") || ans.equals("cos(x) +2"))
+			String ans = JOptionPane.showInputDialog("What is the friggin capital of Iran");
+			if(ans.equals("Tehran"))
 			{
-				JOptionPane.showMessageDialog(null, "Wow you passed senior math congrchulachions");
+				JOptionPane.showMessageDialog(null, "Wow you passed senior history congrchulachions");
 				player.myGPA+=1;
 				player.doneMath = true;
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "nah bro try again");
+				JOptionPane.showMessageDialog(null, "you must actually be a pile of turd if you actually think it's " + ans + ". try again");
 			}
 
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You have completed math class :)");
+			JOptionPane.showMessageDialog(null, "You have completed history class :)");
 		}
 	}
 }
