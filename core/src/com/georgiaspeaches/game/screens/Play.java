@@ -28,7 +28,7 @@ public class Play implements Screen
 	public Play(final MainHalls game)
 	{
 		this.game = game;
-		player = new Player(500, 3.2, game);
+		player = new Player(9, 0.0, game);
 	}
 	public Play(final MainHalls game, Player player)
 	{

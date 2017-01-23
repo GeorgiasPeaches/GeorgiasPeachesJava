@@ -115,11 +115,11 @@ public class Player
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT))
 		{
-			classYear++;
+			myGPA = myGPA+0.01;
 		}
 		drawHUD();
 		spriteBatch.begin();
-		game.font.draw(spriteBatch, "GPA: "+myGPA, 1280/2-30, 880-100-5);
+		game.font.draw(spriteBatch, "GPA: "+(float)myGPA, 1280/2-45, 880-100-5);
 		game.fontSmaller.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-15);
 		spriteBatch.end();
 	}
@@ -143,9 +143,9 @@ public class Player
 		//progress bar gpa
 		mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		mShapeRenderer.setColor(new Color(1, 1, 1, 0.5f));
-		mShapeRenderer.rect(400, 880-130, 500, 30);
+		mShapeRenderer.rect(435, 880-130, 405, 30);
 		mShapeRenderer.setColor(new Color(1, 0, 1, 0.5f));
-		mShapeRenderer.rect(400+2, 880-130+2, (int)myGPA*100, 30-4);
+		mShapeRenderer.rect(435+2, 880-130+2, (float)myGPA*100, 30-4);
 		mShapeRenderer.end();
 		//right top bar
 		mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
