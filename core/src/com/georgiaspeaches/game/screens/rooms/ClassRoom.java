@@ -162,13 +162,14 @@ public class ClassRoom implements Screen
 
 	public void runClasswork(int roomNumber)
 	{
-		switch(roomNumber)
-		{
-			case 311:
+			if(roomNumber == 311)
 				Satalino.work(player);
-			case 329:
+			if(roomNumber == 329)
 				Benzing.work(player);
-		}
+			if(roomNumber == 320)
+				Louns.work(player);
+			if(roomNumber == 220)
+				Doc.work(player);
 	}
 
 	@Override

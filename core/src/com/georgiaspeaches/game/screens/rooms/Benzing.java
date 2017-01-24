@@ -40,8 +40,8 @@ public class Benzing
 		}
 		else if(player.classYear == 10 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("In the story, where did tofuman ride to?");
-			if(ans.equals("Tofuland"))
+			String ans = JOptionPane.showInputDialog("Is the word dog a verb?");
+			if(ans.equals("no"))
 			{
 				JOptionPane.showMessageDialog(null, "Nice going!");
 				player.myGPA+=1;
@@ -70,8 +70,8 @@ public class Benzing
 		}
 		else if(player.classYear == 12 && player.doneEnglish == false)
 		{
-			String ans = JOptionPane.showInputDialog("What literary device is the repetition of a word or phrase at the beginning of successive clauses);
-			if(ans.equals("anaphora")
+			String ans = JOptionPane.showInputDialog("What literary device is the repetition of a word or phrase at the beginning of successive clauses");
+			if(ans.equals("anaphora"))
 			{
 				JOptionPane.showMessageDialog(null, "Wow you passed senior english congrchulachions");
 				player.myGPA+=1;

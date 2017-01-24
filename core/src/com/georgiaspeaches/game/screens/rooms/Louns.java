@@ -72,7 +72,7 @@ public class Louns
 		else if(player.classYear == 12 && player.doneScience == false)
 		{
 			String ans = JOptionPane.showInputDialog("Velocity is:\nA. A scalar quantity\nB. A vector quantity");
-			if(ans.equals("B")
+			if(ans.equals("B"))
 			{
 				JOptionPane.showMessageDialog(null, "Wow you passed senior science congrchulachions");
 				player.myGPA+=1;

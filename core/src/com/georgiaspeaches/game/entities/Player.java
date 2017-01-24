@@ -14,6 +14,8 @@ import com.georgiaspeaches.game.MainHalls;
 import com.georgiaspeaches.game.screens.rooms.ClassRoom;
 import com.georgiaspeaches.game.utilities.DoorLoader;
 
+import javax.swing.*;
+
 
 public class Player
 {
@@ -72,7 +74,10 @@ public class Player
 
 	public void update(boolean mapArray[][])
 	{
-
+		if(myGPA >= 4.0)
+		{
+			graduate();
+		}
 		int currentX = (int)myX/16;
 		int currentY = (int)myY/16;
 		spriteBatch.begin();
@@ -126,20 +131,27 @@ public class Player
 		drawHUD();
 		spriteBatch.begin();
 		game.font.draw(spriteBatch, "GPA: "+(float)myGPA, 1280/2-45, 880-100-5);
-		String classYearText = "";
-		switch(classYear)
-		{
-			case 9:
-				classYearText = "Freshmen";
-			case 10:
-				classYearText = "Sophomore";
-			case 11:
-				classYearText = "Junior";
-			case 12:
-				classYearText = "Senior";
-		}
-		game.font.draw(spriteBatch, "Class Year: "+classYearText, 1280-300+80, 880-100-25);
+		game.font.draw(spriteBatch, "Class Year: "+classYear, 1280-300+80, 880-100-25);
 		spriteBatch.end();
+	}
+
+	private void graduate()
+	{
+		myGPA = 0;
+		classYear++;
+		if(classYear > 12)
+		{
+			JOptionPane.showMessageDialog(null, "Congrats you graduated OMFG WOW");
+			setPos(140, 60);
+		}
+		else
+		{
+			doneEnglish = false;
+			doneMath = false;
+			doneHistory = false;
+			doneScience = false;
+			JOptionPane.showMessageDialog(null, "You have finished a year of school, you are now in " + classYear + "th grade!");
+		}
 	}
 
 	private void enterRoom(int roomNumber)
